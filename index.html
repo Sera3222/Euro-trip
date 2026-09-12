@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euro trip</title>
+    <title>euro trip</title>
     <style>
         /* 基础重置 & 暗金奢华主题 */
         :root {
@@ -103,6 +103,24 @@
         .time-loc p { color: var(--text-muted); font-size: 0.9rem; }
         .plane-icon { color: var(--gold); font-size: 1.5rem; margin: 0 15px; }
         .ref { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); }
+
+        /* 地图超链接样式 */
+        .map-link {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--gold);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .map-link:hover {
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .hotel .map-link:hover {
+            color: var(--blue);
+            border-bottom: 1px solid var(--blue);
+        }
 
         /* 城市行程区块 */
         .city-section {
@@ -234,13 +252,13 @@
                 <div class="flight-details">
                     <div class="time-loc">
                         <h4>01:00</h4>
-                        <p>HKG 香港</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">HKG 香港</a></p>
                         <p style="font-size:0.8rem; color:#888;">24 Dec 2026</p>
                     </div>
                     <div class="plane-icon">✈️</div>
                     <div class="time-loc">
                         <h4>07:40</h4>
-                        <p>MXP 米兰</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&query=Milan+Malpensa+Airport" target="_blank" class="map-link">MXP 米兰</a></p>
                         <p style="font-size:0.8rem; color:#888;">24 Dec 2026</p>
                     </div>
                 </div>
@@ -252,13 +270,13 @@
                 <div class="flight-details">
                     <div class="time-loc">
                         <h4>11:35</h4>
-                        <p>CDG 巴黎</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&query=Paris+Charles+de+Gaulle+Airport" target="_blank" class="map-link">CDG 巴黎</a></p>
                         <p style="font-size:0.8rem; color:#888;">02 Jan 2027</p>
                     </div>
                     <div class="plane-icon">✈️</div>
                     <div class="time-loc">
                         <h4>06:40<sup>+1</sup></h4>
-                        <p>HKG 香港</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">HKG 香港</a></p>
                         <p style="font-size:0.8rem; color:#888;">03 Jan 2027</p>
                     </div>
                 </div>
@@ -275,7 +293,8 @@
             <div class="grid">
                 <!-- 酒店 -->
                 <div class="item-card hotel">
-                    <div class="item-title">🏨 The Westin Palace
+                    <div class="item-title">
+                        <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=The+Westin+Palace+Milan" target="_blank" class="map-link">The Westin Palace</a></span>
                         <span class="tag tag-hotel">已预订</span>
                     </div>
                     <div class="tags">
@@ -285,7 +304,7 @@
                 </div>
                 <!-- 餐饮 -->
                 <div class="item-card">
-                    <div class="item-title">Confine</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Confine+Milano" target="_blank" class="map-link">Confine</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🏆 World No. 4 Pizza</span>
                         <span class="tag tag-action">📅 提前3个月预约</span>
@@ -294,7 +313,7 @@
                     <div class="item-action">⚠️ 需在 9月24日 左右开放时立刻抢位</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Morbius Milano</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Moebius+Milano" target="_blank" class="map-link">Morbius Milano</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🍸 World Top 50 Bar</span>
                         <span class="tag tag-action">📱 WA提前两周预约</span>
@@ -314,7 +333,8 @@
             <div class="grid">
                 <!-- 酒店 -->
                 <div class="item-card hotel">
-                    <div class="item-title">🏨 W Florence
+                    <div class="item-title">
+                        <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=W+Florence+hotel" target="_blank" class="map-link">W Florence</a></span>
                         <span class="tag tag-hotel">已预订</span>
                     </div>
                     <div class="tags">
@@ -324,7 +344,7 @@
                 </div>
                 <!-- 餐饮 -->
                 <div class="item-card">
-                    <div class="item-title">Regina Bistecca</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Regina+Bistecca+Florence" target="_blank" class="map-link">Regina Bistecca</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🥩 World Top 101 Steak</span>
                         <span class="tag tag-action">📅 提前2个月预约</span>
@@ -333,7 +353,7 @@
                     <div class="item-action">⚠️ 需在 10月下旬 安排预订</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Enoteca Pinchiorri</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Enoteca+Pinchiorri+Florence" target="_blank" class="map-link">Enoteca Pinchiorri</a></div>
                     <div class="tags">
                         <span class="tag tag-award">⭐ 米其林三星</span>
                         <span class="tag tag-action">🎄 圣诞晚餐</span>
@@ -353,7 +373,8 @@
             <div class="grid">
                 <!-- 酒店 -->
                 <div class="item-card hotel">
-                    <div class="item-title">🏨 Rome Marriott Grand Hotel Flora
+                    <div class="item-title">
+                        <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=Rome+Marriott+Grand+Hotel+Flora" target="_blank" class="map-link">Rome Marriott Grand Hotel Flora</a></span>
                         <span class="tag tag-hotel">已预订</span>
                     </div>
                     <div class="tags">
@@ -363,7 +384,8 @@
                 </div>
                 <!-- 餐饮 -->
                 <div class="item-card">
-                    <div class="item-title">Drink Kong
+                    <div class="item-title">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Drink+Kong+Rome" target="_blank" class="map-link">Drink Kong</a>
                         <span class="tag tag-booked">✅ 已预约</span>
                     </div>
                     <div class="tags">
@@ -372,7 +394,7 @@
                     <p class="item-desc">赛博朋克风格的顶尖酒吧。已订位：12月28日晚 8:30。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Al Forno della Soffitta</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Al+Forno+della+Soffitta+Rome" target="_blank" class="map-link">Al Forno della Soffitta</a></div>
                     <div class="tags">
                         <span class="tag tag-action">📱 WA提前两周预约</span>
                     </div>
@@ -380,7 +402,7 @@
                     <div class="item-action">⚠️ 需在 12月中旬 通过 WhatsApp 预约</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Pompi Tiramisu</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Pompi+Tiramisu+Rome" target="_blank" class="map-link">Pompi Tiramisu</a></div>
                     <div class="tags">
                         <span class="tag tag-walkin">🚶 Walk-in</span>
                     </div>
@@ -398,7 +420,8 @@
             <div class="grid">
                 <!-- 酒店 -->
                 <div class="item-card hotel">
-                    <div class="item-title">🏨 Canopy by Hilton Paris Trocadero
+                    <div class="item-title">
+                        <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=Canopy+by+Hilton+Paris+Trocadero" target="_blank" class="map-link">Canopy by Hilton Paris Trocadero</a></span>
                         <span class="tag tag-hotel">已预订 (4晚)</span>
                     </div>
                     <div class="tags">
@@ -408,7 +431,7 @@
                 </div>
                 <!-- 餐饮 -->
                 <div class="item-card">
-                    <div class="item-title">Plénitude</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Plenitude+Paris+restaurant" target="_blank" class="map-link">Plénitude</a></div>
                     <div class="tags">
                         <span class="tag tag-award">⭐ 断层米其林三星</span>
                         <span class="tag tag-action">⏳ Joined Waitlist</span>
@@ -417,7 +440,8 @@
                     <div class="item-action">⚠️ 密切关注 Waitlist 状态和邮件通知</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Epicure
+                    <div class="item-title">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Epicure+Paris+restaurant" target="_blank" class="map-link">Epicure</a>
                         <span class="tag tag-booked">✅ 已预约</span>
                     </div>
                     <div class="tags">
@@ -426,7 +450,7 @@
                     <p class="item-desc">老牌奢华法餐的代表。已订位：1月1日 中午 12:15。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Clover Grill</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Clover+Grill+Paris" target="_blank" class="map-link">Clover Grill</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🥩 World Top 101 Steak</span>
                         <span class="tag tag-action">📅 提前2个月预约</span>
@@ -434,7 +458,7 @@
                     <p class="item-desc">巴黎顶尖碳烤牛排。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Bar Nouveau</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Bar+Nouveau+Paris" target="_blank" class="map-link">Bar Nouveau</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🍸 World Top 50 Bar</span>
                         <span class="tag tag-action">📅 提前1个月预订</span>
@@ -443,35 +467,35 @@
                     <div class="item-action">⚠️ 需在 11月底 准点抢位</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Les Antiquaries</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Les+Antiquaires+Paris" target="_blank" class="map-link">Les Antiquaires</a></div>
                     <div class="tags">
                         <span class="tag tag-action">📅 提前1个月预约</span>
                     </div>
                     <p class="item-desc">卢浮宫旁的百年法餐，感受历史底蕴。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">L’Escargot Montorgueil</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=L%E2%80%99Escargot+Montorgueil+Paris" target="_blank" class="map-link">L’Escargot Montorgueil</a></div>
                     <div class="tags">
                         <span class="tag tag-action">📅 提前1个月预约</span>
                     </div>
                     <p class="item-desc">百年金蜗牛餐厅，专吃法式蜗牛。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Comptoir de la Gastronomie</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Comptoir+de+la+Gastronomie+Paris" target="_blank" class="map-link">Comptoir de la Gastronomie</a></div>
                     <div class="tags">
                         <span class="tag tag-action">📅 提前2周预约</span>
                     </div>
                     <p class="item-desc">著名的鹅肝餐厅，性价比与口味兼具。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">La Bonne Mer</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=La+Bonne+Mer+Paris" target="_blank" class="map-link">La Bonne Mer</a></div>
                     <div class="tags">
                         <span class="tag tag-action">📞 落地后电话预约</span>
                     </div>
                     <p class="item-desc">知名法式小酒馆，只接受电话预订。</p>
                 </div>
                 <div class="item-card">
-                    <div class="item-title">Otto bistro & Bar Danico</div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Otto+bistro+Paris" target="_blank" class="map-link">Otto bistro</a> & <a href="https://www.google.com/maps/search/?api=1&query=Bar+Danico+Paris" target="_blank" class="map-link">Bar Danico</a></div>
                     <div class="tags">
                         <span class="tag tag-walkin">🚶 Walk-in Only</span>
                     </div>
