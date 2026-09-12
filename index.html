@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euro-trip | 24 Dec 2026 - 2 Jan 2027</title>
+    <title>Euro trip</title>
     <style>
         /* 基础重置 & 暗金奢华主题 */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --gold: #d4af37;
+            --blue: #3498db;
             --text-main: #f0f0f0;
             --text-muted: #a0a0a0;
             --accent-red: #c0392b;
@@ -128,7 +129,7 @@
             letter-spacing: 1px;
         }
 
-        /* 餐厅/酒吧卡片网格 */
+        /* 卡片网格 */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -146,6 +147,15 @@
         .item-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+        }
+        
+        /* 酒店专属卡片样式 */
+        .item-card.hotel {
+            border-left: 4px solid var(--blue);
+            background: linear-gradient(135deg, #1e1e1e, #1a252f);
+        }
+        .item-card.hotel:hover {
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
         }
 
         .item-title {
@@ -175,6 +185,8 @@
         .tag-booked { background: rgba(39, 174, 96, 0.2); color: var(--success-green); border: 1px solid var(--success-green); }
         .tag-action { background: rgba(192, 57, 43, 0.2); color: #ff6b6b; border: 1px solid var(--accent-red); }
         .tag-walkin { background: rgba(255, 255, 255, 0.1); color: #ddd; border: 1px solid #666; }
+        .tag-hotel { background: rgba(52, 152, 219, 0.2); color: var(--blue); border: 1px solid var(--blue); }
+        .tag-date { background: rgba(255, 255, 255, 0.05); color: #ccc; border: 1px solid #555; }
 
         .item-desc {
             font-size: 0.95rem;
@@ -190,6 +202,14 @@
             color: #e67e22;
         }
 
+        .conf-no {
+            font-family: monospace;
+            color: var(--text-main);
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -202,8 +222,8 @@
 <body>
 
     <header class="hero">
-        <h1>Euro-trip</h1>
-        <p>24 Dec 2026 - 2 Jan 2027</p>
+        <h1>euro trip</h1>
+        <p>米其林三星 · World's 50 Best Bars · 意法圣诞跨年高奢行</p>
     </header>
 
     <div class="container">
@@ -250,9 +270,20 @@
         <section class="city-section">
             <div class="city-header">
                 <h2>米兰</h2>
-                <span>MILANO (12.24 起)</span>
+                <span>MILANO (12.24 - 12.25)</span>
             </div>
             <div class="grid">
+                <!-- 酒店 -->
+                <div class="item-card hotel">
+                    <div class="item-title">🏨 The Westin Palace
+                        <span class="tag tag-hotel">已预订</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">📅 12月24日 - 25日</span>
+                    </div>
+                    <p class="item-desc">Confirmation No: <span class="conf-no">83292350</span></p>
+                </div>
+                <!-- 餐饮 -->
                 <div class="item-card">
                     <div class="item-title">Confine</div>
                     <div class="tags">
@@ -278,9 +309,20 @@
         <section class="city-section">
             <div class="city-header">
                 <h2>佛罗伦萨</h2>
-                <span>FIRENZE</span>
+                <span>FIRENZE (12.25 - 12.27)</span>
             </div>
             <div class="grid">
+                <!-- 酒店 -->
+                <div class="item-card hotel">
+                    <div class="item-title">🏨 W Florence
+                        <span class="tag tag-hotel">已预订</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">📅 12月25日 - 27日</span>
+                    </div>
+                    <p class="item-desc">Confirmation No: <span class="conf-no">75457982</span></p>
+                </div>
+                <!-- 餐饮 -->
                 <div class="item-card">
                     <div class="item-title">Regina Bistecca</div>
                     <div class="tags">
@@ -306,9 +348,20 @@
         <section class="city-section">
             <div class="city-header">
                 <h2>罗马</h2>
-                <span>ROMA (12.28 左右)</span>
+                <span>ROMA (12.27 - 12.29)</span>
             </div>
             <div class="grid">
+                <!-- 酒店 -->
+                <div class="item-card hotel">
+                    <div class="item-title">🏨 Rome Marriott Grand Hotel Flora
+                        <span class="tag tag-hotel">已预订</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">📅 12月27日 - 29日</span>
+                    </div>
+                    <p class="item-desc">Confirmation No: <span class="conf-no">83410937</span></p>
+                </div>
+                <!-- 餐饮 -->
                 <div class="item-card">
                     <div class="item-title">Drink Kong
                         <span class="tag tag-booked">✅ 已预约</span>
@@ -340,9 +393,20 @@
         <section class="city-section">
             <div class="city-header">
                 <h2>巴黎</h2>
-                <span>PARIS (跨年)</span>
+                <span>PARIS (12.29 - 01.02)</span>
             </div>
             <div class="grid">
+                <!-- 酒店 -->
+                <div class="item-card hotel">
+                    <div class="item-title">🏨 Canopy by Hilton Paris Trocadero
+                        <span class="tag tag-hotel">已预订 (4晚)</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">📅 12月29日 - 1月2日</span>
+                    </div>
+                    <p class="item-desc">巴黎埃菲尔铁塔希尔顿嘉悦里酒店<br>Confirmation No: <span class="conf-no">3522342965</span></p>
+                </div>
+                <!-- 餐饮 -->
                 <div class="item-card">
                     <div class="item-title">Plénitude</div>
                     <div class="tags">
