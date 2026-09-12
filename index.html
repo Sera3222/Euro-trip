@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>euro trip</title>
+    <title>Euro Trip (Updated)</title>
     <style>
-        /* 基础重置 & 暗金奢华主题 */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -30,7 +29,6 @@
             line-height: 1.6;
         }
 
-        /* 顶部 Hero 区域 */
         .hero {
             height: 60vh;
             background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
@@ -55,7 +53,6 @@
             max-width: 600px;
         }
 
-        /* 容器 */
         .container {
             max-width: 1200px;
             margin: -50px auto 50px;
@@ -64,7 +61,6 @@
             z-index: 10;
         }
 
-        /* 地图超链接样式 */
         .map-link {
             color: #fff;
             text-decoration: none;
@@ -82,7 +78,18 @@
             border-bottom: 1px solid var(--blue);
         }
 
-        /* 每日行程区块 */
+        .flight-overview-section {
+            margin-bottom: 40px;
+        }
+
+        .flight-overview-section h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
         .day-section {
             margin-bottom: 40px;
         }
@@ -107,7 +114,6 @@
             letter-spacing: 1px;
         }
 
-        /* 卡片网格 */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -127,7 +133,6 @@
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
         }
         
-        /* 酒店/航班专属卡片样式 */
         .item-card.hotel {
             border-left: 4px solid var(--blue);
             background: linear-gradient(135deg, #1e1e1e, #1a252f);
@@ -206,11 +211,40 @@
 <body>
 
     <header class="hero">
-        <h1>Euro trip</h1>
+        <h1>Euro Trip</h1>
         <p>24 Dec 2026 - 2 Jan 2027</p>
     </header>
 
     <div class="container">
+
+        <!-- 航班信息总览放在最上面 -->
+        <section class="flight-overview-section">
+            <h2>✈️ 国际航班总览</h2>
+            <div class="grid">
+                <div class="item-card flight">
+                    <div class="item-title">
+                        <span>去程 CX233 (香港 ➔ 米兰)</span>
+                        <span class="tag tag-flight">已出票</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">12月24日 | 01:00 HKG ➔ 07:40 MXP</span>
+                    </div>
+                    <p class="item-desc">出发地：<a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">香港国际机场</a><br>目的地：<a href="https://www.google.com/maps/search/?api=1&query=Milan+Malpensa+Airport" target="_blank" class="map-link">米兰马尔彭萨机场</a></p>
+                    <span class="ref" style="display:block; margin-top:8px; font-size:0.85rem; color:var(--text-muted);">Booking ref: EYUO6D</span>
+                </div>
+                <div class="item-card flight">
+                    <div class="item-title">
+                        <span>回程 CX260 (巴黎 ➔ 香港)</span>
+                        <span class="tag tag-flight">已出票</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">1月2日 | 11:35 CDG ➔ 06:40(+1) HKG</span>
+                    </div>
+                    <p class="item-desc">出发地：<a href="https://www.google.com/maps/search/?api=1&query=Paris+Charles+de+Gaulle+Airport" target="_blank" class="map-link">戴高乐机场 (CDG)</a><br>目的地：<a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">香港国际机场 (HKG)</a></p>
+                    <span class="ref" style="display:block; margin-top:8px; font-size:0.85rem; color:var(--text-muted);">Booking ref: EYUYDI</span>
+                </div>
+            </div>
+        </section>
 
         <!-- Day 1 -->
         <section class="day-section">
@@ -219,23 +253,20 @@
                 <span>12月24日 (周四) · 启程 & 米兰落地</span>
             </div>
             <div class="grid">
-                <div class="item-card flight">
-                    <div class="item-title">
-                        <span>✈️ 去程 CX233 (香港 ➔ 米兰)</span>
-                        <span class="tag tag-flight">已出票</span>
-                    </div>
-                    <div class="tags">
-                        <span class="tag tag-date">01:00 HKG ➔ 07:40 MXP</span>
-                    </div>
-                    <p class="item-desc">出发地：<a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">香港国际机场</a><br>目的地：<a href="https://www.google.com/maps/search/?api=1&query=Milan+Malpensa+Airport" target="_blank" class="map-link">米兰马尔彭萨机场</a></p>
-                    <span class="ref" style="display:block; margin-top:8px; font-size:0.85rem; color:var(--text-muted);">Booking ref: EYUO6D</span>
-                </div>
                 <div class="item-card hotel">
                     <div class="item-title">
                         <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=The+Westin+Palace+Milan" target="_blank" class="map-link">The Westin Palace</a></span>
                         <span class="tag tag-hotel">已预订 (12.24-25)</span>
                     </div>
                     <p class="item-desc">落地后前往酒店入住休整。<br>Confirmation No: <span class="conf-no">83292350</span></p>
+                </div>
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Moebius+Milano" target="_blank" class="map-link">Moebius Milano</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">🍸 World Top 50 Bar</span>
+                        <span class="tag tag-action">📱 WA提前两周预约</span>
+                    </div>
+                    <p class="item-desc">米兰世界级鸡尾酒体验（落地当天的放松好去处）。</p>
                 </div>
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Confine+Milano" target="_blank" class="map-link">Confine</a></div>
@@ -256,14 +287,6 @@
                 <span>12月25日 (周五) · 米兰 ➔ 佛罗伦萨</span>
             </div>
             <div class="grid">
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Moebius+Milano" target="_blank" class="map-link">Moebius Milano</a></div>
-                    <div class="tags">
-                        <span class="tag tag-award">🍸 World Top 50 Bar</span>
-                        <span class="tag tag-action">📱 WA提前两周预约</span>
-                    </div>
-                    <p class="item-desc">米兰世界级鸡尾酒体验（可在上午或离开前安排）。</p>
-                </div>
                 <div class="item-card hotel">
                     <div class="item-title">
                         <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=W+Florence+hotel" target="_blank" class="map-link">W Florence</a></span>
@@ -391,7 +414,7 @@
         <section class="day-section">
             <div class="day-header">
                 <h2>Day 7</h2>
-                <span>12月30日 (周三) · 卢浮宫、凡尔赛宫与疯马秀</span>
+                <span>12月30日 (周三) · 卢浮宫 & 巴黎漫步</span>
             </div>
             <div class="grid">
                 <div class="item-card">
@@ -400,17 +423,22 @@
                         <span class="tag tag-award">🖼️ 世界最大艺术博物馆</span>
                         <span class="tag tag-action">📅 提前购票</span>
                     </div>
-                    <p class="item-desc"><b>上午场次建议</b>：欣赏蒙娜丽莎、断臂维纳斯等镇馆之宝。<br><b>时间：约 09:30 - 12:30</b></p>
+                    <p class="item-desc"><b>上午场次建议</b>：欣赏蒙娜丽莎、断臂维纳斯等镇馆之宝。<br><b>时间：约 09:30 - 13:00</b></p>
                     <div class="item-action">⚠️ 热门景点必须提前在官网预约指定入场时段</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Palace+of+Versailles" target="_blank" class="map-link">凡尔赛宫 (Palace of Versailles)</a></div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=La+Bonne+Mer+Paris" target="_blank" class="map-link">La Bonne Mer</a></div>
                     <div class="tags">
-                        <span class="tag tag-award">👑 欧洲勒诺特尔式宫殿巅峰</span>
-                        <span class="tag tag-action">📅 提前购票</span>
+                        <span class="tag tag-action">📞 预约</span>
                     </div>
-                    <p class="item-desc"><b>下午深度游</b>：搭乘RER C线前往城郊，领略镜厅与皇家园林的奢华气派。<br><b>时间：约 14:00 - 17:30</b></p>
-                    <div class="item-action">⚠️ 需预留往返市区的交通时间 (单程约45分钟)</div>
+                    <p class="item-desc">知名法式小酒馆，卢浮宫游玩之后的绝佳用餐选择。</p>
+                </div>
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Angelina+Paris" target="_blank" class="map-link">Angelina Paris</a></div>
+                    <div class="tags">
+                        <span class="tag tag-walkin">☕ 传奇热巧克力</span>
+                    </div>
+                    <p class="item-desc">下午茶歇：享用巴黎最著名的浓郁热巧克力与勃朗峰栗子蛋糕 (Mont Blanc)。</p>
                 </div>
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Crazy+Horse+Paris" target="_blank" class="map-link">巴黎疯马秀 (Crazy Horse)</a></div>
@@ -419,7 +447,7 @@
                         <span class="tag tag-action">📅 已加购</span>
                     </div>
                     <p class="item-desc">极具视听艺术之美的传奇性感歌舞秀。<br><b>演出场次：21:30 - 23:00</b></p>
-                    <div class="item-action">⚠️ 结束充实又震撼的一天，完美衔接夜生活</div>
+                    <div class="item-action">⚠️ 完美衔接精彩的巴黎夜生活</div>
                 </div>
             </div>
         </section>
@@ -428,9 +456,16 @@
         <section class="day-section">
             <div class="day-header">
                 <h2>Day 8</h2>
-                <span>12月31日 (周四) · 跨年夜</span>
+                <span>12月31日 (周四) · 跨年夜：塞纳河漫步与微醺</span>
             </div>
             <div class="grid">
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Le+Marais+Paris" target="_blank" class="map-link">玛黑区 (Le Marais) 深度漫步</a></div>
+                    <div class="tags">
+                        <span class="tag tag-walkin">🚶 街区探索</span>
+                    </div>
+                    <p class="item-desc">跨年白天的悠闲时光，探索独立设计师小店、买手店与街头艺术历史建筑。</p>
+                </div>
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Bar+Nouveau+Paris" target="_blank" class="map-link">Bar Nouveau</a></div>
                     <div class="tags">
@@ -441,13 +476,11 @@
                     <div class="item-action">⚠️ 需在 11月底 准点抢位</div>
                 </div>
                 <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Plenitude+Paris+restaurant" target="_blank" class="map-link">Plénitude</a></div>
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&q=Bateaux+Parisiens+New+Year+Cruise" target="_blank" class="map-link">塞纳河跨年游船 (可选)</a></div>
                     <div class="tags">
-                        <span class="tag tag-award">⭐ 断层米其林三星</span>
-                        <span class="tag tag-action">⏳ Joined Waitlist</span>
+                        <span class="tag tag-action">🎆 倒计时体验</span>
                     </div>
-                    <p class="item-desc">巴黎当红炸子鸡，梦幻跨年晚宴首选。</p>
-                    <div class="item-action">⚠️ 密切关注 Waitlist 状态和邮件通知</div>
+                    <p class="item-desc">在塞纳河水上迎接新年倒计时，欣赏两岸璀璨的埃菲尔铁塔灯光秀。</p>
                 </div>
             </div>
         </section>
@@ -495,22 +528,10 @@
             </div>
             <div class="grid">
                 <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=La+Bonne+Mer+Paris" target="_blank" class="map-link">La Bonne Mer</a></div>
-                    <div class="tags">
-                        <span class="tag tag-action">📞 落地后电话预约</span>
-                    </div>
-                    <p class="item-desc">知名法式小酒馆，适合离开前的最后一餐。</p>
-                </div>
-                <div class="item-card flight">
                     <div class="item-title">
-                        <span>✈️ 回程 CX260 (巴黎 ➔ 香港)</span>
-                        <span class="tag tag-flight">已出票</span>
+                        <span>✨ 行程圆满结束</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag tag-date">11:35 CDG ➔ 06:40(+1) HKG</span>
-                    </div>
-                    <p class="item-desc">出发地：<a href="https://www.google.com/maps/search/?api=1&query=Paris+Charles+de+Gaulle+Airport" target="_blank" class="map-link">戴高乐机场 (CDG)</a><br>目的地：<a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">香港国际机场 (HKG)</a></p>
-                    <span class="ref" style="display:block; margin-top:8px; font-size:0.85rem; color:var(--text-muted);">Booking ref: EYUYDI</span>
+                    <p class="item-desc">收拾行李，前往戴高乐机场搭乘回程航班，结束美好的欧洲跨年之旅！</p>
                 </div>
             </div>
         </section>
