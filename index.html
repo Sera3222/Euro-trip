@@ -64,46 +64,6 @@
             z-index: 10;
         }
 
-        /* 航班信息卡片 */
-        .flight-section {
-            background: var(--card-bg);
-            border-top: 3px solid var(--gold);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .flight-card {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        .flight-card h3 {
-            color: var(--gold);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .flight-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #2a2a2a;
-            padding: 15px 20px;
-            border-radius: 8px;
-        }
-
-        .time-loc h4 { font-size: 1.5rem; margin-bottom: 5px; }
-        .time-loc p { color: var(--text-muted); font-size: 0.9rem; }
-        .plane-icon { color: var(--gold); font-size: 1.5rem; margin: 0 15px; }
-        .ref { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); }
-
         /* 地图超链接样式 */
         .map-link {
             color: #fff;
@@ -122,28 +82,28 @@
             border-bottom: 1px solid var(--blue);
         }
 
-        /* 城市行程区块 */
-        .city-section {
-            margin-bottom: 50px;
+        /* 每日行程区块 */
+        .day-section {
+            margin-bottom: 40px;
         }
 
-        .city-header {
+        .day-header {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #333;
             padding-bottom: 10px;
         }
 
-        .city-header h2 {
-            font-size: 2.2rem;
+        .day-header h2 {
+            font-size: 2rem;
             color: #fff;
             margin-right: 15px;
         }
 
-        .city-header span {
+        .day-header span {
             color: var(--gold);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 1px;
         }
 
@@ -167,13 +127,18 @@
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
         }
         
-        /* 酒店专属卡片样式 */
+        /* 酒店/航班专属卡片样式 */
         .item-card.hotel {
             border-left: 4px solid var(--blue);
             background: linear-gradient(135deg, #1e1e1e, #1a252f);
         }
         .item-card.hotel:hover {
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
+        }
+
+        .item-card.flight {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(135deg, #1e1e1e, #2a251a);
         }
 
         .item-title {
@@ -204,6 +169,7 @@
         .tag-action { background: rgba(192, 57, 43, 0.2); color: #ff6b6b; border: 1px solid var(--accent-red); }
         .tag-walkin { background: rgba(255, 255, 255, 0.1); color: #ddd; border: 1px solid #666; }
         .tag-hotel { background: rgba(52, 152, 219, 0.2); color: var(--blue); border: 1px solid var(--blue); }
+        .tag-flight { background: rgba(212, 175, 55, 0.2); color: var(--gold); border: 1px solid var(--gold); }
         .tag-date { background: rgba(255, 255, 255, 0.05); color: #ccc; border: 1px solid #555; }
 
         .item-desc {
@@ -245,144 +211,145 @@
     </header>
 
     <div class="container">
-        <!-- 航班信息 -->
-        <section class="flight-section">
-            <div class="flight-card">
-                <h3>✈️ 去程 (Cathay Pacific CX233)</h3>
-                <div class="flight-details">
-                    <div class="time-loc">
-                        <h4>01:00</h4>
-                        <p><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">HKG 香港</a></p>
-                        <p style="font-size:0.8rem; color:#888;">24 Dec 2026</p>
-                    </div>
-                    <div class="plane-icon">✈️</div>
-                    <div class="time-loc">
-                        <h4>07:40</h4>
-                        <p><a href="https://www.google.com/maps/search/?api=1&query=Milan+Malpensa+Airport" target="_blank" class="map-link">MXP 米兰</a></p>
-                        <p style="font-size:0.8rem; color:#888;">24 Dec 2026</p>
-                    </div>
-                </div>
-                <span class="ref">Booking ref: EYUO6D</span>
-            </div>
 
-            <div class="flight-card">
-                <h3>✈️ 回程 (Cathay Pacific CX260)</h3>
-                <div class="flight-details">
-                    <div class="time-loc">
-                        <h4>11:35</h4>
-                        <p><a href="https://www.google.com/maps/search/?api=1&query=Paris+Charles+de+Gaulle+Airport" target="_blank" class="map-link">CDG 巴黎</a></p>
-                        <p style="font-size:0.8rem; color:#888;">02 Jan 2027</p>
-                    </div>
-                    <div class="plane-icon">✈️</div>
-                    <div class="time-loc">
-                        <h4>06:40<sup>+1</sup></h4>
-                        <p><a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">HKG 香港</a></p>
-                        <p style="font-size:0.8rem; color:#888;">03 Jan 2027</p>
-                    </div>
-                </div>
-                <span class="ref">Booking ref: EYUYDI</span>
-            </div>
-        </section>
-
-        <!-- 米兰 -->
-        <section class="city-section">
-            <div class="city-header">
-                <h2>米兰</h2>
-                <span>MILANO (12.24 - 12.25)</span>
+        <!-- Day 1 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 1</h2>
+                <span>12月24日 (周四) · 启程 & 米兰落地</span>
             </div>
             <div class="grid">
-                <!-- 酒店 -->
+                <div class="item-card flight">
+                    <div class="item-title">
+                        <span>✈️ 去程 CX233 (香港 ➔ 米兰)</span>
+                        <span class="tag tag-flight">已出票</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">01:00 HKG ➔ 07:40 MXP</span>
+                    </div>
+                    <p class="item-desc">出发地：<a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">香港国际机场</a><br>目的地：<a href="https://www.google.com/maps/search/?api=1&query=Milan+Malpensa+Airport" target="_blank" class="map-link">米兰马尔彭萨机场</a></p>
+                    <span class="ref" style="display:block; margin-top:8px; font-size:0.85rem; color:var(--text-muted);">Booking ref: EYUO6D</span>
+                </div>
                 <div class="item-card hotel">
                     <div class="item-title">
                         <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=The+Westin+Palace+Milan" target="_blank" class="map-link">The Westin Palace</a></span>
-                        <span class="tag tag-hotel">已预订</span>
+                        <span class="tag tag-hotel">已预订 (12.24-25)</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag tag-date">📅 12月24日 - 25日</span>
-                    </div>
-                    <p class="item-desc">Confirmation No: <span class="conf-no">83292350</span></p>
+                    <p class="item-desc">落地后前往酒店入住休整。<br>Confirmation No: <span class="conf-no">83292350</span></p>
                 </div>
-                <!-- 餐饮 -->
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Confine+Milano" target="_blank" class="map-link">Confine</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🏆 World No. 4 Pizza</span>
                         <span class="tag tag-action">📅 提前3个月预约</span>
                     </div>
-                    <p class="item-desc">顶尖披萨体验。计划在平安夜（12.24）享用，落地米兰当晚的重头戏。</p>
+                    <p class="item-desc">平安夜重头戏：顶尖披萨体验。</p>
                     <div class="item-action">⚠️ 需在 9月24日 左右开放时立刻抢位</div>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Moebius+Milano" target="_blank" class="map-link">Morbius Milano</a></div>
-                    <div class="tags">
-                        <span class="tag tag-award">🍸 World Top 50 Bar</span>
-                        <span class="tag tag-action">📱 WA提前两周预约</span>
-                    </div>
-                    <p class="item-desc">米兰夜生活必打卡，世界级鸡尾酒体验。</p>
-                    <div class="item-action">⚠️ 需在 12月上旬 通过 WhatsApp 预约</div>
                 </div>
             </div>
         </section>
 
-        <!-- 佛罗伦萨 -->
-        <section class="city-section">
-            <div class="city-header">
-                <h2>佛罗伦萨</h2>
-                <span>FIRENZE (12.25 - 12.27)</span>
+        <!-- Day 2 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 2</h2>
+                <span>12月25日 (周五) · 米兰 ➔ 佛罗伦萨</span>
             </div>
             <div class="grid">
-                <!-- 酒店 -->
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Moebius+Milano" target="_blank" class="map-link">Moebius Milano</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">🍸 World Top 50 Bar</span>
+                        <span class="tag tag-action">📱 WA提前两周预约</span>
+                    </div>
+                    <p class="item-desc">米兰世界级鸡尾酒体验（可在上午或离开前安排）。</p>
+                </div>
                 <div class="item-card hotel">
                     <div class="item-title">
                         <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=W+Florence+hotel" target="_blank" class="map-link">W Florence</a></span>
-                        <span class="tag tag-hotel">已预订</span>
+                        <span class="tag tag-hotel">已预订 (12.25-27)</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag tag-date">📅 12月25日 - 27日</span>
-                    </div>
-                    <p class="item-desc">Confirmation No: <span class="conf-no">75457982</span></p>
+                    <p class="item-desc">搭乘火车前往佛罗伦萨并入住。<br>Confirmation No: <span class="conf-no">75457982</span></p>
                 </div>
-                <!-- 餐饮 -->
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Regina+Bistecca+Florence" target="_blank" class="map-link">Regina Bistecca</a></div>
                     <div class="tags">
                         <span class="tag tag-award">🥩 World Top 101 Steak</span>
                         <span class="tag tag-action">📅 提前2个月预约</span>
                     </div>
-                    <p class="item-desc">佛罗伦萨T骨牛排的顶级代表，肉食爱好者的天堂。</p>
+                    <p class="item-desc">佛罗伦萨T骨牛排顶级代表，圣诞之夜的肉食盛宴。</p>
                     <div class="item-action">⚠️ 需在 10月下旬 安排预订</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Day 3 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 3</h2>
+                <span>12月26日 (周六) · 佛罗伦萨探索</span>
+            </div>
+            <div class="grid">
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Enoteca+Pinchiorri+Florence" target="_blank" class="map-link">Enoteca Pinchiorri</a></div>
                     <div class="tags">
                         <span class="tag tag-award">⭐ 米其林三星</span>
-                        <span class="tag tag-action">🎄 圣诞晚餐</span>
+                        <span class="tag tag-action">🎄 圣诞大餐</span>
                     </div>
-                    <p class="item-desc">意大利顶级精细餐饮，酒窖极具盛名。计划在此享用圣诞大餐。</p>
+                    <p class="item-desc">意大利顶级精细餐饮，世界级传奇酒窖。</p>
                     <div class="item-action">⚠️ 需提前45天预订 (约 11月10日)</div>
                 </div>
             </div>
         </section>
 
-        <!-- 罗马 -->
-        <section class="city-section">
-            <div class="city-header">
-                <h2>罗马</h2>
-                <span>ROMA (12.27 - 12.29)</span>
+        <!-- Day 4 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 4</h2>
+                <span>12月27日 (周日) · 佛罗伦萨 ➔ 罗马</span>
             </div>
             <div class="grid">
-                <!-- 酒店 -->
                 <div class="item-card hotel">
                     <div class="item-title">
                         <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=Rome+Marriott+Grand+Hotel+Flora" target="_blank" class="map-link">Rome Marriott Grand Hotel Flora</a></span>
-                        <span class="tag tag-hotel">已预订</span>
+                        <span class="tag tag-hotel">已预订 (12.27-29)</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag tag-date">📅 12月27日 - 29日</span>
-                    </div>
-                    <p class="item-desc">Confirmation No: <span class="conf-no">83410937</span></p>
+                    <p class="item-desc">前往永恒之城罗马，入住酒店。<br>Confirmation No: <span class="conf-no">83410937</span></p>
                 </div>
-                <!-- 餐饮 -->
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Al+Forno+della+Soffitta+Rome" target="_blank" class="map-link">Al Forno della Soffitta</a></div>
+                    <div class="tags">
+                        <span class="tag tag-action">📱 WA提前两周预约</span>
+                    </div>
+                    <p class="item-desc">罗马地道美食，主打招牌龙虾意面。</p>
+                    <div class="item-action">⚠️ 需在 12月中旬 通过 WhatsApp 预约</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 5 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 5</h2>
+                <span>12月28日 (周一) · 罗马斗兽场 & 深度游</span>
+            </div>
+            <div class="grid">
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Colosseum+Rome" target="_blank" class="map-link">罗马斗兽场 (Colosseum)</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">🏛️ 世界文化遗产</span>
+                        <span class="tag tag-action">📅 提前1个月购票</span>
+                    </div>
+                    <p class="item-desc">世界新七大奇迹之一，感受古罗马帝国的宏伟建筑与历史震撼。</p>
+                    <div class="item-action">⚠️ 建议尽早在官网预约含地下/竞技场层的官方导览票</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Pompi+Tiramisu+Rome" target="_blank" class="map-link">Pompi Tiramisu</a></div>
+                    <div class="tags">
+                        <span class="tag tag-walkin">🚶 Walk-in</span>
+                    </div>
+                    <p class="item-desc">逛街打卡罗马最著名的提拉米苏。</p>
+                </div>
                 <div class="item-card">
                     <div class="item-title">
                         <a href="https://www.google.com/maps/search/?api=1&query=Drink+Kong+Rome" target="_blank" class="map-link">Drink Kong</a>
@@ -391,54 +358,107 @@
                     <div class="tags">
                         <span class="tag tag-award">🍸 World Top 50 Bar</span>
                     </div>
-                    <p class="item-desc">赛博朋克风格的顶尖酒吧。已订位：12月28日晚 8:30。</p>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Al+Forno+della+Soffitta+Rome" target="_blank" class="map-link">Al Forno della Soffitta</a></div>
-                    <div class="tags">
-                        <span class="tag tag-action">📱 WA提前两周预约</span>
-                    </div>
-                    <p class="item-desc">主打招牌龙虾意面，罗马地道美食。</p>
-                    <div class="item-action">⚠️ 需在 12月中旬 通过 WhatsApp 预约</div>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Pompi+Tiramisu+Rome" target="_blank" class="map-link">Pompi Tiramisu</a></div>
-                    <div class="tags">
-                        <span class="tag tag-walkin">🚶 Walk-in</span>
-                    </div>
-                    <p class="item-desc">罗马最著名的提拉米苏，逛街时随时去吃。</p>
+                    <p class="item-desc">赛博朋克风格顶尖酒吧。<br><b>已订位：12月28日晚 8:30</b></p>
                 </div>
             </div>
         </section>
 
-        <!-- 巴黎 -->
-        <section class="city-section">
-            <div class="city-header">
-                <h2>巴黎</h2>
-                <span>PARIS (12.29 - 01.02)</span>
+        <!-- Day 6 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 6</h2>
+                <span>12月29日 (周二) · 罗马 ➔ 巴黎</span>
             </div>
             <div class="grid">
-                <!-- 酒店 -->
                 <div class="item-card hotel">
                     <div class="item-title">
-                        <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=Canopy+by+Hilton+Paris+Trocadero" target="_blank" class="map-link">Canopy by Hilton Paris Trocadero</a></span>
-                        <span class="tag tag-hotel">已预订 (4晚)</span>
+                        <span>🏨 <a href="https://www.google.com/maps/search/?api=1&query=Canopy+by+Hilton+Paris+Trocadero" target="_blank" class="map-link">Canopy by Hilton Paris</a></span>
+                        <span class="tag tag-hotel">已预订 (12.29-01.02)</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag tag-date">📅 12月29日 - 1月2日</span>
-                    </div>
-                    <p class="item-desc">巴黎埃菲尔铁塔希尔顿嘉悦里酒店<br>Confirmation No: <span class="conf-no">3522342965</span></p>
+                    <p class="item-desc">搭乘航班/列车抵达巴黎，入住埃菲尔铁塔旁酒店。<br>Confirmation No: <span class="conf-no">3522342965</span></p>
                 </div>
-                <!-- 餐饮 -->
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Comptoir+de+la+Gastronomie+Paris" target="_blank" class="map-link">Comptoir de la Gastronomie</a></div>
+                    <div class="tags">
+                        <span class="tag tag-action">📅 提前2周预约</span>
+                    </div>
+                    <p class="item-desc">巴黎著名的鹅肝餐厅，性价比与口味兼具。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 7 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 7</h2>
+                <span>12月30日 (周三) · 卢浮宫、凡尔赛宫与疯马秀</span>
+            </div>
+            <div class="grid">
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Musée+du+Louvre+Paris" target="_blank" class="map-link">卢浮宫 (Musée du Louvre)</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">🖼️ 世界最大艺术博物馆</span>
+                        <span class="tag tag-action">📅 提前购票</span>
+                    </div>
+                    <p class="item-desc"><b>上午场次建议</b>：欣赏蒙娜丽莎、断臂维纳斯等镇馆之宝。<br><b>时间：约 09:30 - 12:30</b></p>
+                    <div class="item-action">⚠️ 热门景点必须提前在官网预约指定入场时段</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Palace+of+Versailles" target="_blank" class="map-link">凡尔赛宫 (Palace of Versailles)</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">👑 欧洲勒诺特尔式宫殿巅峰</span>
+                        <span class="tag tag-action">📅 提前购票</span>
+                    </div>
+                    <p class="item-desc"><b>下午深度游</b>：搭乘RER C线前往城郊，领略镜厅与皇家园林的奢华气派。<br><b>时间：约 14:00 - 17:30</b></p>
+                    <div class="item-action">⚠️ 需预留往返市区的交通时间 (单程约45分钟)</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Crazy+Horse+Paris" target="_blank" class="map-link">巴黎疯马秀 (Crazy Horse)</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">💃 巴黎经典大秀</span>
+                        <span class="tag tag-action">📅 已加购</span>
+                    </div>
+                    <p class="item-desc">极具视听艺术之美的传奇性感歌舞秀。<br><b>演出场次：21:30 - 23:00</b></p>
+                    <div class="item-action">⚠️ 结束充实又震撼的一天，完美衔接夜生活</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 8 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 8</h2>
+                <span>12月31日 (周四) · 跨年夜</span>
+            </div>
+            <div class="grid">
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Bar+Nouveau+Paris" target="_blank" class="map-link">Bar Nouveau</a></div>
+                    <div class="tags">
+                        <span class="tag tag-award">🍸 World Top 50 Bar</span>
+                        <span class="tag tag-action">📅 提前1个月预订</span>
+                    </div>
+                    <p class="item-desc">新艺术风格调酒吧，跨年夜微醺首选。</p>
+                    <div class="item-action">⚠️ 需在 11月底 准点抢位</div>
+                </div>
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Plenitude+Paris+restaurant" target="_blank" class="map-link">Plénitude</a></div>
                     <div class="tags">
                         <span class="tag tag-award">⭐ 断层米其林三星</span>
                         <span class="tag tag-action">⏳ Joined Waitlist</span>
                     </div>
-                    <p class="item-desc">巴黎当红炸子鸡，顶级味觉体验。首选跨年晚餐。</p>
+                    <p class="item-desc">巴黎当红炸子鸡，梦幻跨年晚宴首选。</p>
                     <div class="item-action">⚠️ 密切关注 Waitlist 状态和邮件通知</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Day 9 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 9</h2>
+                <span>1月1日 (周五) · 新年第一天</span>
+            </div>
+            <div class="grid">
                 <div class="item-card">
                     <div class="item-title">
                         <a href="https://www.google.com/maps/search/?api=1&query=Epicure+Paris+restaurant" target="_blank" class="map-link">Epicure</a>
@@ -447,7 +467,7 @@
                     <div class="tags">
                         <span class="tag tag-award">⭐ 米其林三星</span>
                     </div>
-                    <p class="item-desc">老牌奢华法餐的代表。已订位：1月1日 中午 12:15。</p>
+                    <p class="item-desc">老牌奢华法餐代表。<br><b>已订位：1月1日 中午 12:15</b></p>
                 </div>
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Clover+Grill+Paris" target="_blank" class="map-link">Clover Grill</a></div>
@@ -455,44 +475,7 @@
                         <span class="tag tag-award">🥩 World Top 101 Steak</span>
                         <span class="tag tag-action">📅 提前2个月预约</span>
                     </div>
-                    <p class="item-desc">巴黎顶尖碳烤牛排。</p>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Bar+Nouveau+Paris" target="_blank" class="map-link">Bar Nouveau</a></div>
-                    <div class="tags">
-                        <span class="tag tag-award">🍸 World Top 50 Bar</span>
-                        <span class="tag tag-action">📅 提前1个月预订</span>
-                    </div>
-                    <p class="item-desc">新艺术风格，极难预订。</p>
-                    <div class="item-action">⚠️ 需在 11月底 准点抢位</div>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Les+Antiquaires+Paris" target="_blank" class="map-link">Les Antiquaires</a></div>
-                    <div class="tags">
-                        <span class="tag tag-action">📅 提前1个月预约</span>
-                    </div>
-                    <p class="item-desc">卢浮宫旁的百年法餐，感受历史底蕴。</p>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=L%E2%80%99Escargot+Montorgueil+Paris" target="_blank" class="map-link">L’Escargot Montorgueil</a></div>
-                    <div class="tags">
-                        <span class="tag tag-action">📅 提前1个月预约</span>
-                    </div>
-                    <p class="item-desc">百年金蜗牛餐厅，专吃法式蜗牛。</p>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Comptoir+de+la+Gastronomie+Paris" target="_blank" class="map-link">Comptoir de la Gastronomie</a></div>
-                    <div class="tags">
-                        <span class="tag tag-action">📅 提前2周预约</span>
-                    </div>
-                    <p class="item-desc">著名的鹅肝餐厅，性价比与口味兼具。</p>
-                </div>
-                <div class="item-card">
-                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=La+Bonne+Mer+Paris" target="_blank" class="map-link">La Bonne Mer</a></div>
-                    <div class="tags">
-                        <span class="tag tag-action">📞 落地后电话预约</span>
-                    </div>
-                    <p class="item-desc">知名法式小酒馆，只接受电话预订。</p>
+                    <p class="item-desc">巴黎顶尖碳烤牛排晚餐。</p>
                 </div>
                 <div class="item-card">
                     <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=Otto+bistro+Paris" target="_blank" class="map-link">Otto bistro</a> & <a href="https://www.google.com/maps/search/?api=1&query=Bar+Danico+Paris" target="_blank" class="map-link">Bar Danico</a></div>
@@ -500,6 +483,34 @@
                         <span class="tag tag-walkin">🚶 Walk-in Only</span>
                     </div>
                     <p class="item-desc">法式小酒馆与 Top 50 调酒，随性探店。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 10 -->
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Day 10</h2>
+                <span>1月2日 (周六) · 巴黎返程</span>
+            </div>
+            <div class="grid">
+                <div class="item-card">
+                    <div class="item-title"><a href="https://www.google.com/maps/search/?api=1&query=La+Bonne+Mer+Paris" target="_blank" class="map-link">La Bonne Mer</a></div>
+                    <div class="tags">
+                        <span class="tag tag-action">📞 落地后电话预约</span>
+                    </div>
+                    <p class="item-desc">知名法式小酒馆，适合离开前的最后一餐。</p>
+                </div>
+                <div class="item-card flight">
+                    <div class="item-title">
+                        <span>✈️ 回程 CX260 (巴黎 ➔ 香港)</span>
+                        <span class="tag tag-flight">已出票</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag tag-date">11:35 CDG ➔ 06:40(+1) HKG</span>
+                    </div>
+                    <p class="item-desc">出发地：<a href="https://www.google.com/maps/search/?api=1&query=Paris+Charles+de+Gaulle+Airport" target="_blank" class="map-link">戴高乐机场 (CDG)</a><br>目的地：<a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="map-link">香港国际机场 (HKG)</a></p>
+                    <span class="ref" style="display:block; margin-top:8px; font-size:0.85rem; color:var(--text-muted);">Booking ref: EYUYDI</span>
                 </div>
             </div>
         </section>
