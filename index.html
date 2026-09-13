@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Trip (Updated)</title>
+    <!-- 引入 Leaflet 地图 CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <style>
         :root {
             --bg-color: #121212;
@@ -59,6 +61,41 @@
             padding: 0 20px;
             position: relative;
             z-index: 10;
+        }
+
+        /* 互动地图区块样式 */
+        .map-section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .map-section h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        #interactive-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 6px;
+            z-index: 1;
+        }
+
+        /* 适配暗黑地图的弹窗样式 */
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+            background: #2a2a2a !important;
+            color: #f0f0f0 !important;
+            border: 1px solid var(--gold);
+        }
+        .leaflet-popup-content a {
+            color: var(--gold);
         }
 
         .map-link {
@@ -218,7 +255,13 @@
 
     <div class="container">
 
-        <!-- 航班信息总览放在最上面 -->
+        <!-- 互动地图组件 -->
+        <section class="map-section">
+            <h2>🗺️ 欧游足迹互动地图</h2>
+            <div id="interactive-map"></div>
+        </section>
+
+        <!-- 航班信息总览放在上面 -->
         <section class="flight-overview-section">
             <h2>✈️ Flight</h2>
             <div class="grid">
@@ -567,5 +610,40 @@
         <p>祝旅途愉快 Bon Voyage & Buon Viaggio | &copy; 2026 专属行程定制</p>
     </footer>
 
+    <!-- 引入 Leaflet 地图 JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // 初始化地图，中心点设在欧洲中部，缩放级别 5
+        var map = L.map('interactive-map').setView([45.8, 9.5], 5);
+
+        // 使用 CartoDB 的 Dark Matter 风格瓦片图层，完美契合暗黑主题页面
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        // 路线城市节点数据
+        var destinations = [
+            { name: "米兰 (Milan)", coords: [45.4642, 9.1900], desc: "入住: The Westin Palace<br>打卡: Moebius, Confine" },
+            { name: "佛罗伦萨 (Florence)", coords: [43.7696, 11.2558], desc: "入住: W Florence<br>打卡: Enoteca Pinchiorri, Regina Bistecca" },
+            { name: "罗马 (Rome)", coords: [41.9028, 12.4964], desc: "入住: Rome Marriott Grand Hotel Flora<br>打卡: 罗马斗兽场, Drink Kong" },
+            { name: "巴黎 (Paris)", coords: [48.8566, 2.3522], desc: "入住: Canopy by Hilton Paris<br>打卡: 卢浮宫, 疯马秀, Epicure" }
+        ];
+
+        // 批量添加标记
+        var latlngs = [];
+        destinations.forEach(function(dest) {
+            var marker = L.marker(dest.coords).addTo(map);
+            marker.bindPopup("<b>" + dest.name + "</b><br>" + dest.desc);
+            latlngs.push(dest.coords);
+        });
+
+        // 绘制行程路线折线 (Polyline)
+        var polyline = L.polyline(latlngs, {color: '#d4af37', weight: 3, dashArray: '5, 10'}).addTo(map);
+        
+        // 自动调整视野把所有点包含在内
+        map.fitBounds(polyline.getBounds(), {padding: [50, 50]});
+    </script>
 </body>
 </html>
