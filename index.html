@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euro Trip (Updated)</title>
+    <title>Euro Trip (Updated with Detailed Map)</title>
     <!-- 引入 Leaflet 地图 CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <style>
@@ -83,7 +83,7 @@
 
         #interactive-map {
             width: 100%;
-            height: 400px;
+            height: 500px;
             border-radius: 6px;
             z-index: 1;
         }
@@ -249,7 +249,7 @@
 <body>
 
     <header class="hero">
-        <h1>Euro Trip Itinerary</h1>
+        <h1>Euro Trip</h1>
         <p>24 Dec 2026 - 2 Jan 2027</p>
     </header>
 
@@ -261,7 +261,7 @@
             <div id="interactive-map"></div>
         </section>
 
-        <!-- 航班信息总览放在上面 -->
+        <!-- 航班信息总览 -->
         <section class="flight-overview-section">
             <h2>✈️ Flight</h2>
             <div class="grid">
@@ -613,37 +613,71 @@
     <!-- 引入 Leaflet 地图 JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
-        // 初始化地图，中心点设在欧洲中部，缩放级别 5
+        // 初始化地图，中心点设在欧洲中部
         var map = L.map('interactive-map').setView([45.8, 9.5], 5);
 
-        // 使用 CartoDB 的 Dark Matter 风格瓦片图层，完美契合暗黑主题页面
+        // 使用 CartoDB 的 Dark Matter 风格瓦片图层
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
             subdomains: 'abcd',
             maxZoom: 19
         }).addTo(map);
 
-        // 路线城市节点数据
-        var destinations = [
-            { name: "米兰 (Milan)", coords: [45.4642, 9.1900], desc: "入住: The Westin Palace<br>打卡: Moebius, Confine" },
-            { name: "佛罗伦萨 (Florence)", coords: [43.7696, 11.2558], desc: "入住: W Florence<br>打卡: Enoteca Pinchiorri, Regina Bistecca" },
-            { name: "罗马 (Rome)", coords: [41.9028, 12.4964], desc: "入住: Rome Marriott Grand Hotel Flora<br>打卡: 罗马斗兽场, Drink Kong" },
-            { name: "巴黎 (Paris)", coords: [48.8566, 2.3522], desc: "入住: Canopy by Hilton Paris<br>打卡: 卢浮宫, 疯马秀, Epicure" }
+        // 所有提到的详细地点坐标数据 (包含机场、酒店、餐厅、酒吧、景点)
+        var allLocations = [
+            // 机场与城市主节点
+            { name: "香港国际机场 (HKG)", coords: [22.3080, 113.9185], category: "flight", desc: "出发/回程机场 (CX233 / CX260)" },
+            { name: "米兰马尔彭萨机场 (MXP)", coords: [45.6306, 8.7281], category: "flight", desc: "米兰落地机场" },
+            { name: "巴黎戴高乐机场 (CDG)", coords: [49.0097, 2.5479], category: "flight", desc: "巴黎回港起飞机场" },
+
+            // 米兰 (Milan)
+            { name: "The Westin Palace (米兰)", coords: [45.4756, 9.1983], category: "hotel", desc: "12.24 - 12.25 入住酒店 | Ref: 83292350" },
+            { name: "Moebius Milano", coords: [45.4852, 9.2014], category: "bar", desc: "Day 1 | World Top 50 Bar" },
+            { name: "Confine", coords: [45.4621, 9.1820], category: "food", desc: "Day 1 | World No. 4 Pizza" },
+
+            // 佛罗伦萨 (Florence)
+            { name: "W Florence", coords: [43.7711, 11.2536], category: "hotel", desc: "12.25 - 12.27 入住酒店 | Ref: 75457982" },
+            { name: "Enoteca Pinchiorri", coords: [43.7684, 11.2612], category: "food", desc: "Day 2 | 米其林三星圣诞大餐" },
+            { name: "Regina Bistecca", coords: [43.7720, 11.2565], category: "food", desc: "Day 3 | World Top 101 Steak (T-bone)" },
+
+            // 罗马 (Rome)
+            { name: "Rome Marriott Grand Hotel Flora", coords: [41.9080, 12.4893], category: "hotel", desc: "12.27 - 12.29 入住酒店 | Ref: 83410937" },
+            { name: "Al Forno della Soffitta", coords: [41.9092, 12.5021], category: "food", desc: "Day 4 | 招牌龙虾意面" },
+            { name: "罗马斗兽场 (Colosseum)", coords: [41.8902, 12.4922], category: "sight", desc: "Day 5 | 世界文化遗产" },
+            { name: "Pompi Tiramisu", coords: [41.9056, 12.4823], category: "food", desc: "Day 5 | 经典提拉米苏 (Walk-in)" },
+            { name: "Drink Kong", coords: [41.8918, 12.4578], category: "bar", desc: "Day 5 | 赛博朋克风格 World Top 50 Bar (已预约)" },
+
+            // 巴黎 (Paris)
+            { name: "Canopy by Hilton Paris Trocadero", coords: [48.8631, 2.2882], category: "hotel", desc: "12.29 - 01.02 入住酒店 | Ref: 3522342965" },
+            { name: "Comptoir de la Gastronomie", coords: [48.8659, 2.3444], category: "food", desc: "Day 6 | 传统法式鹅肝" },
+            { name: "卢浮宫 (Musée du Louvre)", coords: [48.8606, 2.3376], category: "sight", desc: "Day 7 | 世界最大艺术博物馆" },
+            { name: "Les Antiquaires", coords: [48.8578, 2.3275], category: "food", desc: "Day 7 | 卢浮宫旁百年法餐" },
+            { name: "La Bonne Mer", coords: [48.8750, 2.3400], category: "food", desc: "Day 7 | 经典法式小酒馆 (电话预约)" },
+            { name: "巴黎疯马秀 (Crazy Horse)", coords: [48.8660, 2.3023], category: "sight", desc: "Day 7 | 经典传奇大秀" },
+            { name: "凡尔赛宫 (Palace of Versailles)", coords: [48.8049, 2.1204], category: "sight", desc: "Day 8 | 奢华宫殿与镜厅" },
+            { name: "L’Escargot Montorgueil", coords: [48.8665, 2.3456], category: "food", desc: "Day 8 | 传统法式蜗牛午餐" },
+            { name: "玛黑区 (Le Marais)", coords: [48.8575, 2.3614], category: "sight", desc: "Day 8 | 街区漫步/买手店探索" },
+            { name: "Clover Grill", coords: [48.8622, 2.3331], category: "food", desc: "Day 8 | World Top 101 Steak 碳烤牛排" },
+            { name: "Plenitude", coords: [48.8679, 2.3065], category: "food", desc: "Day 8 | 断层米三 (Waitlist)" },
+            { name: "Bar Nouveau", coords: [48.8640, 2.3620], category: "bar", desc: "Day 8 | 新艺术风格 World Top 50 Bar" },
+            { name: "Epicure", coords: [48.8715, 2.3168], category: "food", desc: "Day 9 | 米其林三星奢华午宴 (已预约)" },
+            { name: "Otto bistro", coords: [48.8600, 2.3700], category: "food", desc: "Day 9 | 随性法式小酒馆 (Walk-in)" },
+            { name: "Bar Danico", coords: [48.8687, 2.3338], category: "bar", desc: "Day 9 | World Top 50 Bar (Walk-in)" }
         ];
 
-        // 批量添加标记
+        // 遍历所有地点并添加到地图中
         var latlngs = [];
-        destinations.forEach(function(dest) {
-            var marker = L.marker(dest.coords).addTo(map);
-            marker.bindPopup("<b>" + dest.name + "</b><br>" + dest.desc);
-            latlngs.push(dest.coords);
+        allLocations.forEach(function(item) {
+            var marker = L.marker(item.coords).addTo(map);
+            marker.bindPopup("<b>" + item.name + "</b><br>" + item.desc);
+            latlngs.push(item.coords);
         });
 
-        // 绘制行程路线折线 (Polyline)
-        var polyline = L.polyline(latlngs, {color: '#d4af37', weight: 3, dashArray: '5, 10'}).addTo(map);
+        // 绘制串联所有地点的连线轨迹（用金色虚线）
+        var polyline = L.polyline(latlngs, {color: '#d4af37', weight: 2, dashArray: '4, 8'}).addTo(map);
         
-        // 自动调整视野把所有点包含在内
-        map.fitBounds(polyline.getBounds(), {padding: [50, 50]});
+        // 自动缩放视野以容纳所有坐标点
+        map.fitBounds(polyline.getBounds(), {padding: [40, 40]});
     </script>
 </body>
 </html>
